@@ -17,12 +17,12 @@ Gyro gyro(igyro);
 
 void setup(){
   Serial.begin(115200);
-    Wire1.setSDA(17);
+  Wire1.setSDA(17);
   Wire1.setSCL(16);
   Wire1.begin();
-  mcp.begin();
+  mcpBegin();
     if (!igyro.begin()) Serial.println(F("Gyro missing!"));
-   for (int i =49;i<57:i++){
+   for (int i =49;i<57;i++){
     pinMode(i,OUTPUT);
    }
 
@@ -30,3 +30,5 @@ void setup(){
 void loop(){
 
 }
+//push commit
+//sadsa
