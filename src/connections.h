@@ -26,3 +26,9 @@
 #define M3B 4
 #define M4A 9
 #define M4B 28
+#define court_width 1200
+#define court_length 2000
+#define goal_distance 1950
+#define sensors_offset_y = 6
+#define sensors_offset_x = 2
+
