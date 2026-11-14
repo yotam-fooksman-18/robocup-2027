@@ -14,4 +14,4 @@ sensor uls3={DST3,DSR3};
 void init_ultrasonic(sensor ul_sensor);
 int measures[4] = {0,0,0,0};
 int measure_distance(sensor ul_sensor);
-int send_cord(sensor* uls);
+int send_cord(int oldX, int oldY);
