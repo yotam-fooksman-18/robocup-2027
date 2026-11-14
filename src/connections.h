@@ -29,6 +29,7 @@
 #define court_width 1200
 #define court_length 2000
 #define goal_distance 1950
-#define sensors_offset_y = 6
-#define sensors_offset_x = 2
+#define sensors_offset_y = 60
+#define sensors_offset_x = 20
+#define ul_sensors_distance 50
 

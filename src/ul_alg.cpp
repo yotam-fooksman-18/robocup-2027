@@ -28,8 +28,11 @@ int measure_distance(sensor ul_sensor){
 
   return -1;
 }
-int send_cord(sensor* uls){
-  for (int i=0;i<uls->size();i++){
+int send_cord(){
+  for (int i=0;i<4;i++){
+    measures[i]=measure_distance(ul_sensors[i]);
+
+  }
+  
     
-}
 }
