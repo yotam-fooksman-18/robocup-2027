@@ -31,14 +31,32 @@ int measure_distance(sensor ul_sensor){
 int send_cord(int oldX, int oldY){
   for (int i=0;i<4;i++){
     measures[i]=measure_distance(ul_sensors[i]);
-
   }
+
   if (measures[0] == -1 || measures[1] == -1 || measures[2] == -1 || measures[3] == -1){return -1;}
-int  x = (court_width - (measures[3]));
-if (abs(court_length - measures[3]- measures[1]- ul_sensors_distance)>10){x= oldX;}
+  int x,y;
+  if (not(abs(oldX - ul_sensors_distance/2 -measures[1])> 30)){
+    x = court_width - measures[1] - ul_sensors_distance/2;
+  }else if(not(abs(oldX - ul_sensors_distance/2 -measures[3])> 30)){
+    x = measures[3] + ul_sensors_distance/2;
+  }else{
+    x=oldX;
+  }
+  if(not(abs(oldY - ul_sensors_distance/2 -measures[2])> 30)){
+    y = court_length - measures[2] - ul_sensors_distance/2;
+  }else if(not(abs(oldY - ul_sensors_distance/2 -measures[0])> 30)){
+    y = measures[0] + ul_sensors_distance/2;  
+  }
+else{
+    y=oldY;
+  }
+  return x,y;
+
+}
+
 
 
 
   
     
-}
+
