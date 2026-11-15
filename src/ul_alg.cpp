@@ -50,6 +50,10 @@ int send_cord(int oldX, int oldY){
 else{
     y=oldY;
   }
+
+  x -= sensors_offset_x;
+  y -= sensors_offset_y;
+
   return x,y;
 
 }
