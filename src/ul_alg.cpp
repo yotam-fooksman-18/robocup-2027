@@ -32,9 +32,10 @@ int send_cord(int oldX, int oldY){
   for (int i=0;i<4;i++){
     measures[i]=measure_distance(ul_sensors[i]);
   }
-
-  if (measures[0] == -1 || measures[1] == -1 || measures[2] == -1 || measures[3] == -1){return -1;}
   int x,y;
+if(oldX>0 && oldY>0){
+  if (measures[0] == -1 || measures[1] == -1 || measures[2] == -1 || measures[3] == -1){return -1;}
+
   if (not(abs(oldX - ul_sensors_distance/2 -measures[1])> 30)){
     x = court_width - measures[1] - ul_sensors_distance/2;
   }else if(not(abs(oldX - ul_sensors_distance/2 -measures[3])> 30)){
@@ -50,7 +51,10 @@ int send_cord(int oldX, int oldY){
 else{
     y=oldY;
   }
-
+}else{
+x = court_width - measures[1] - ul_sensors_distance/2;
+  y = court_length - measures[2] - ul_sensors_distance/2;
+}
   x -= sensors_offset_x;
   y -= sensors_offset_y;
 

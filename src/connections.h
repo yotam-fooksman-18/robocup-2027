@@ -26,10 +26,10 @@
 #define M3B 4
 #define M4A 9
 #define M4B 28
-#define court_width 1200
-#define court_length 2000
-#define goal_distance 1950
+extern const int court_width = 1200;
+extern const int court_length = 2000;
+extern const int goal_distance = 1950;
 extern const int sensors_offset_y = 60;
 extern const int sensors_offset_x = 20;
-#define ul_sensors_distance 50
+extern const int ul_sensors_distance =50;
 
