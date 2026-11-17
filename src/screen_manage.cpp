@@ -29,10 +29,10 @@ void init_screen() {
     display.drawStr(10, 20, "Hello Yotam!");
   } while (display.nextPage());
 }
-void display_menu(option optionsP[]){
+void display_menu(option optionsP[],int size){
 display.clearBuffer();
-for(int i = 0; i<sizeof(optionsP); i++){
-    display.setCursor(0, 0);
+for(int i = 0; i < size; i++){
+    display.setCursor(0, 0); 
     display.drawStr(0, 12*i, optionsP[i].name);
 }
 
@@ -54,7 +54,7 @@ void encoder_begin(){
   attachInterrupt(digitalPinToInterrupt(PIN_B), onEncoder, CHANGE);
 }
 
-void update_screen(){
+void update_screen(int size){
   static int32_t lastCount = 0;
   static bool lastPressed = false;
 
@@ -74,7 +74,7 @@ void update_screen(){
     lastPressed = pressed;
     delay(20);   // crude debounce
   }
-  int selectedOption = c % sizeof(options);
+  int selectedOption = c % size;
   display.drawDisc(108,selectedOption , 20);       
   if (pressed) {
     options[selectedOption].action();
