@@ -1,3 +1,5 @@
+#pragma once
+#include<Arduino.h>
 #define SDA0p  18
 #define SCL0p  19
 #define SDA1p  17
@@ -26,10 +28,23 @@
 #define M3B 4
 #define M4A 9
 #define M4B 28
-extern const int court_width = 1200;
-extern const int court_length = 2000;
-extern const int goal_distance = 1950;
-extern const int sensors_offset_y = 60;
-extern const int sensors_offset_x = 20;
-extern const int ul_sensors_distance =50;
+constexpr int court_width = 1200;
+constexpr int court_length = 2000;
+constexpr int goal_distance = 1950;
+constexpr int sensors_offset_y = 60;
+constexpr int sensors_offset_x = 20;
+constexpr int ul_sensors_distance = 50;
+constexpr int8_t table[16] = {
+   0, -1,  1,  0,
+   1,  0,  0, -1,
+  -1,  0,  0,  1,
+   0,  1, -1,  0
+};
+constexpr uint8_t PIN_A  = 26;
+constexpr uint8_t PIN_B  = 27;
+constexpr uint8_t PIN_SW = 4;
+constexpr int8_t TRANSITIONS_PER_CLICK = 4;
+volatile int32_t count = 0;
+volatile int8_t  sub = 0;
+volatile uint8_t prev = 0;
 

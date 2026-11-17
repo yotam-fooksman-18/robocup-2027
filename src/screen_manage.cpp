@@ -1,10 +1,12 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <U8g2lib.h>
-
+#include "connections.h"
+#include"screen_manage.h"
+#include"Gyro.h"
+ U8G2_SSD1327_WS_128X128_1_HW_I2C display(U8G2_R0, U8X8_PIN_NONE);
 void init_screen() {
-  U8G2_SSD1327_WS_128X128_1_HW_I2C display(U8G2_R0, U8X8_PIN_NONE);
-
+ 
 
 
   // 1) I2C scan: prints the address of anything connected
@@ -27,9 +29,9 @@ void init_screen() {
     display.drawStr(10, 20, "Hello Yotam!");
   } while (display.nextPage());
 }
-void display_menu(option *optionsP){
+void display_menu(option optionsP[]){
 display.clearBuffer();
-for(int i = 0; i optionsP.size(); i++){
+for(int i = 0; i<sizeof(optionsP); i++){
     display.setCursor(0, 0);
     display.drawStr(0, 12*i, optionsP[i].name);
 }
@@ -51,9 +53,7 @@ void encoder_begin(){
   attachInterrupt(digitalPinToInterrupt(PIN_A), onEncoder, CHANGE);
   attachInterrupt(digitalPinToInterrupt(PIN_B), onEncoder, CHANGE);
 }
-void update_encoder(){
-    
-}
+
 void update_screen(){
   static int32_t lastCount = 0;
   static bool lastPressed = false;
@@ -80,8 +80,8 @@ void update_screen(){
     options[selectedOption].action();
   }
 }
-void calibratwe_gyro(){
+void calibrate_gyro(){
   Serial.println("Calibrating gyro...");
-  ChangeX(getX());
+  changeX(getX());
 }
 
