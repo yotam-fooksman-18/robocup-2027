@@ -7,8 +7,8 @@
 #include "mcp.h"
 #include "Gyro.h"
 #include "mcp.h"
-Adafruit_BNO055 igyro = Adafruit_BNO055(55, 0x28, &Wire1);
-Gyro gyro(igyro);
+extern Adafruit_BNO055 gyro = Adafruit_BNO055(55, 0x28, &Wire1);
+
  Motor mFR(49,50,0);
  Motor mFL(51,52,0);
   Motor mBR(53,54,0);
@@ -21,7 +21,7 @@ void setup(){
   Wire1.setSCL(16);
   Wire1.begin();
   mcpBegin();
-    if (!igyro.begin()) Serial.println(F("Gyro missing!"));
+    if (!gyro.begin()) Serial.println(F("Gyro missing!"));
    for (int i =49;i<57;i++){
     pinMode(i,OUTPUT);
    }

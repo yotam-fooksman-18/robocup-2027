@@ -1,32 +1,33 @@
 #include"Gyro.h"
+#include"main.cpp"
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
 
-Gyro::Gyro(Adafruit_BNO055& bno) : _bno(bno) {}
-int Gyro::getX(){
+// Gyro(Adafruit_BNO055& bno) : _bno(bno) {}
+int getX(){
     sensors_event_t event; 
- _bno.getEvent(&event);
+ gyro.getEvent(&event);
  int x = event.orientation.x;
 
   return x;
 }
-int Gyro::getY(){
+int getY(){
     sensors_event_t event; 
- _bno.getEvent(&event);
+ gyro.getEvent(&event);
  int  y = event.orientation.y;
   Serial.println(y);
   return y;
 }
-int Gyro::convert(int data){
+int convert(int data){
   if (data> 180) data-=360;
   return data;
 }
-void Gyro::changeX(int newx){
+void changeX(int newx){
   starter_x = newx;
 }
-bool Gyro::check_ot(){
+bool check_ot(){
   int nx = getX();
  if (abs(nx - starter_x) < 10){
   return true;
