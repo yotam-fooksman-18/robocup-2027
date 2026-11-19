@@ -15,3 +15,4 @@ void init_ultrasonic(sensor ul_sensor);
 int measures[4] = {0,0,0,0};
 int measure_distance(sensor ul_sensor);
 int send_cord(int oldX, int oldY);
+extern int change_dimentions(int num);

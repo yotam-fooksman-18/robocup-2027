@@ -2,18 +2,26 @@
 #include<Arduino.h>
 
 struct option{
-    char name[20];
-    int num;
-    void (action)();   
+const char *name; 
+   int num;
+    void (*action)();   
 };
 
 
 
 
 void init_screen();
-void display_menu(option optionsP[]);
+void display_menu(option optionsP[],int size);
 void onEncoder();
 void encoder_begin();
-void update_screen(int size);
+void update_screen();
 void calibrate_gyro();
-option options[4] = {{'calibrate gyro', 1 ,'calibrate_gyro'},{'switch goals', 2 ,'switch_goals'},{'ball values', 3, 'ball_values'},{'D', 4 ,'something'}};
+void change_ul_distance();
+void back();
+void set_ul(int num);
+void ball_values();
+
+void switch_goals();
+extern int menu_number;
+extern option options[4];
+extern option ul_options[4];

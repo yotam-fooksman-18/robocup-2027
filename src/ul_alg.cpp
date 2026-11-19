@@ -62,6 +62,19 @@ x = court_width - measures[1] - ul_sensors_distance/2;
 
 }
 
+extern int change_dimentions(int num){
+  int new_measure;
+  switch(num){
+    case 0:
+      new_measure = measures[1] + measures[3] + ul_sensors_distance;
+      break;
+    default:
+      new_measure = measures[0] + measures[2] + ul_sensors_distance;
+   
+   
+  }
+  return new_measure;
+}
 
 
 

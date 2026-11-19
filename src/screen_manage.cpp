@@ -2,8 +2,23 @@
 #include <Wire.h>
 #include <U8g2lib.h>
 #include "connections.h"
+#include "ul_alg.h"
 #include"screen_manage.h"
 #include"Gyro.h"
+int menu_number = 1;
+option options[4] = {
+  {"calibrate gyro",     1, calibrate_gyro},
+  {"switch goals",       2, switch_goals},
+  {"ball values",        3, ball_values},
+  {"Change ul distance", 4, change_ul_distance}
+};
+
+option ul_options[4] = {
+  {"set width",     1, []{ set_ul(0); }},
+  {"set length",    2, []{ set_ul(1); }},
+  {"set goal dist", 3, []{ set_ul(2); }},
+  {"back",          4, back}
+};
  U8G2_SSD1327_WS_128X128_1_HW_I2C display(U8G2_R0, U8X8_PIN_NONE);
 void init_screen() {
  
@@ -54,7 +69,20 @@ void encoder_begin(){
   attachInterrupt(digitalPinToInterrupt(PIN_B), onEncoder, CHANGE);
 }
 
-void update_screen(int size){
+void update_screen(){
+  int size;
+  option *options;
+  switch(menu_number){
+    case 1:
+      options = options;
+      size = 4;
+      break;
+    case 2:
+      options = ul_options;
+      size = 3;
+      break;
+  }
+  display_menu(options,size);
   static int32_t lastCount = 0;
   static bool lastPressed = false;
 
@@ -85,3 +113,25 @@ void calibrate_gyro(){
   changeX(getX());
 }
 
+void change_ul_distance(){
+ menu_number = 2;
+ update_screen();
+}
+void set_ul(int num){
+
+  switch(num){
+    case 0:
+      Serial.println("Setting width");
+     court_width = change_dimentions(0);
+      break;
+    case 1:
+      Serial.println("Setting length");
+      court_length = change_dimentions(1);
+      break;
+    case 2:
+      Serial.println("Setting goal distance");
+      goal_distance = measures[1];
+      break;
+  }
+
+}

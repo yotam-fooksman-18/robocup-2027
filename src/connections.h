@@ -28,9 +28,9 @@
 #define M3B 4
 #define M4A 9
 #define M4B 28
-constexpr int court_width = 1200;
-constexpr int court_length = 2000;
-constexpr int goal_distance = 1950;
+extern int court_width = 1200;
+extern int court_length = 2000;
+extern int goal_distance = 1950;
 constexpr int sensors_offset_y = 60;
 constexpr int sensors_offset_x = 20;
 constexpr int ul_sensors_distance = 50;
