@@ -12,7 +12,7 @@ sensor uls1={DST1,DSR1};
 sensor uls2={DST2,DSR2};    
 sensor uls3={DST3,DSR3};
 void init_ultrasonic(sensor ul_sensor);
-int measures[4] = {0,0,0,0};
+extern int measures[4];
 int measure_distance(sensor ul_sensor);
 int send_cord(int oldX, int oldY);
 extern int change_dimentions(int num);

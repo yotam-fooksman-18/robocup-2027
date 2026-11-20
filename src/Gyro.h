@@ -6,9 +6,9 @@
 
 
 extern Adafruit_BNO055 gyro;
-int x;
-int y;
-int starter_x;
+extern int x;
+extern int y;
+extern int starster_x;
 
 
  extern int getX();

@@ -5,6 +5,7 @@
 #include <utility/imumaths.h>
 Adafruit_BNO055 gyro = Adafruit_BNO055(55, 0x28, &Wire1);
 // Gyro(Adafruit_BNO055& bno) : _bno(bno) {}
+int starter_x;
 int getX(){
     sensors_event_t event; 
  gyro.getEvent(&event);
