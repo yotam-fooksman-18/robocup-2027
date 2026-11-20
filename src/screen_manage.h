@@ -9,7 +9,7 @@ const char *name;
 
 
 
-
+void back();
 void init_screen();
 void display_menu(option optionsP[],int size);
 void onEncoder();
@@ -20,7 +20,6 @@ void change_ul_distance();
 void back();
 void set_ul(int num);
 void ball_values();
-
 void switch_goals();
 extern int menu_number;
 extern option options[4];
