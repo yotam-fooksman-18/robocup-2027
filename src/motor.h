@@ -12,3 +12,7 @@ class Motor{
     const int offset;
 
 };
+extern Motor mFR;
+extern Motor mFL;
+extern Motor mBR;
+extern Motor mBL;

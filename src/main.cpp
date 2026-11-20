@@ -7,7 +7,11 @@
 #include "mcp.h"
 #include "Gyro.h"
 #include "mcp.h"
-extern Adafruit_BNO055 gyro = Adafruit_BNO055(55, 0x28, &Wire1);
+#include "connections.h"
+#include "screen_manage.h"
+#include "ul_alg.h"
+
+
 
  Motor mFR(49,50,0);
  Motor mFL(51,52,0);
@@ -28,7 +32,6 @@ void setup(){
 
 }
 void loop(){
-
+Serial.println(court_width);
 }
-//push commit
-//sadsa
+

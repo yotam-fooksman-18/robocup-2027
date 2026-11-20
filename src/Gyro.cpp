@@ -1,10 +1,9 @@
 #include"Gyro.h"
-#include"main.cpp"
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
-
+Adafruit_BNO055 gyro = Adafruit_BNO055(55, 0x28, &Wire1);
 // Gyro(Adafruit_BNO055& bno) : _bno(bno) {}
 int getX(){
     sensors_event_t event; 

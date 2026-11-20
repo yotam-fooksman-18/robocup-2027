@@ -2,6 +2,9 @@
 #include<connections.h>
 #include<ul_alg.h>
 #include<SoftwareSerial.h>
+int court_width = 1200;
+int court_length = 2000;
+int goal_distance = 1950;
 void init_ultrasonic(sensor ul_sensor){
   pinMode(ul_sensor.tx,OUTPUT);
   pinMode(ul_sensor.rx,INPUT);

@@ -24,9 +24,8 @@ uint8_t mcpRead(uint8_t reg) {
   return Wire.read();
 }
 
-void setup() {
-  Wire.begin();
-  Wire.setClock(400000);
+void setup_mcp() {
+
 
   mcpWrite(IODIRA, 0x00);  // port A: all outputs
   mcpWrite(IODIRB, 0xFF);  // port B: all inputs
@@ -42,12 +41,4 @@ void mcpBegin() {
   Wire.write(0xFF);   // IODIRA
   Wire.write(0xFF);   // IODIRB (address auto-increments in the default mode)
   Wire.endTransmission();
-}
-void loop() {
-  mcpWrite(GPIOA, 0xFF);   // all A pins high
-  delay(500);
-  mcpWrite(GPIOA, 0x00);   // all A pins low
-  delay(500);
-
-  uint8_t b = mcpRead(GPIOB);  // bit n = pin Bn (0 = pressed if wired to GND)
 }

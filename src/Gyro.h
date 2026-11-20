@@ -5,7 +5,7 @@
 #include <utility/imumaths.h>
 
 
-
+extern Adafruit_BNO055 gyro;
 int x;
 int y;
 int starter_x;

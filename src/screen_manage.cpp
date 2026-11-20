@@ -6,6 +6,13 @@
 #include"screen_manage.h"
 #include"Gyro.h"
 int menu_number = 1;
+ uint8_t PIN_A  = 26;
+ uint8_t PIN_B  = 27;
+uint8_t PIN_SW = 4;
+int8_t TRANSITIONS_PER_CLICK = 4;
+volatile int32_t count = 0;
+volatile int8_t  sub = 0;
+volatile uint8_t prev = 0;
 option options[4] = {
   {"calibrate gyro",     1, calibrate_gyro},
   {"switch goals",       2, switch_goals},

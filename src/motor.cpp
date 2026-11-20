@@ -1,4 +1,4 @@
-#include"Motor.h"
+#include"motor.h"
 #include <Arduino.h>
 Motor::Motor(const int IN1p,const int IN2p, int offs) : IN1pin(IN1p),IN2pin(IN1p),offset(offs){};
 void Motor::move(int in1,bool in2){
